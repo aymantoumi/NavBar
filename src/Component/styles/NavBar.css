@@ -1,0 +1,101 @@
+
+/* ---------------- */
+
+.logo {
+    margin: 2rem;
+    color: aliceblue;
+}
+
+.primary-header {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+.primary-navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: hsl(0 0% 0% / 0.6);
+    backdrop-filter: blur(0.5rem);
+    border-radius: 1.5rem 0 0 1.5rem;
+}
+
+@supports (backdrop-filter: blur(1rem)) {
+    .primary-navigation {
+        background: hsl(0 0% 100% / 0.1);
+        backdrop-filter: blur(0.5rem);
+    }
+}
+
+.primary-navigation a {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 900;
+
+}
+
+.primary-navigation a>[aria-hidden="true"] {
+    margin-inline-end: 0.75rem;
+}
+
+@media (max-width : 35em) {
+    .primary-navigation {
+        --gap: 2em;
+
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2rem;
+
+        transform: translateX(100%);
+        transition: 500ms ease-out;
+
+        border-radius: 0 ;
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position: absolute;
+        z-index: 9999;
+        width: 2rem;
+        aspect-ratio: 1;
+        top: 2rem;
+        right: 2rem;
+        background-color: transparent;
+        background-image: url("../assests/bars-solid.svg");
+        background-repeat: no-repeat;
+        border: 0;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url("../assests/x-solid.svg");
+        background-color: transparent;
+        background-repeat: no-repeat;
+    }
+
+}
+
+@media (min-width: 35em) and (max-width: 55em) {
+    .primary-navigation a>span[aria-hidden] {
+        display: none;
+    }
+}
+
+@media (min-width: 35em) {
+    .primary-navigation {
+        padding-block: 2rem;
+        padding-inline: clamp(3rem, 10vw, 10rem);
+    }
+}
+
+/* ---------------- */
