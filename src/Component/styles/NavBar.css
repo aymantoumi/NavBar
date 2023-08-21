@@ -21,7 +21,7 @@
     margin: 0;
     background: hsl(0 0% 0% / 0.6);
     backdrop-filter: blur(0.5rem);
-    border-radius: 1.5rem 0 0 1.5rem;
+    border-radius: 0 0 0 .5rem;
 }
 
 @supports (backdrop-filter: blur(1rem)) {
